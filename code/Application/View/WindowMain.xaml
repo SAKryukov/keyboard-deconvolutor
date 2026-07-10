@@ -12,6 +12,7 @@
 
   <Window.Resources>
     <Thickness x:Key="statusBarItemMargin">8 0 20 0</Thickness>
+    <FontFamily x:Key="monospaceFamily">Consolas, Courier New, Global Monospace</FontFamily>
     <system:Double x:Key="fontSizeDefault">18</system:Double>
     <Style x:Key="focusRectangle">
       <Setter Property="Control.Template">
@@ -49,7 +50,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0"
           Text="{Binding ScanCode}"
-          FontFamily="Consolas, Courier New, Global Monospace"
+          FontFamily="{StaticResource monospaceFamily}"
           FontWeight="Bold"
           Foreground="Blue"
           VerticalAlignment="Bottom"/>
@@ -108,6 +109,7 @@
     <Style TargetType="ListViewItem">
       <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
       <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="FontFamily" Value="{StaticResource monospaceFamily}"/>
       <Setter Property="SnapsToDevicePixels" Value="True"/>
       <Setter Property="Template">
         <Setter.Value>
