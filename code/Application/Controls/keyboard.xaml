@@ -1,0 +1,657 @@
+<UserControl x:Class="SA.Controls.Keyboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <UserControl.Resources>
+    <Style TargetType="Rectangle">
+      <Setter Property="Fill" Value="White"/>
+      <Setter Property="Stroke" Value="Black"/>
+      <Setter Property="RadiusX" Value="6"/>
+      <Setter Property="RadiusY" Value="6"/>
+    </Style>
+    <Style x:Key="keyboardCase" TargetType="Rectangle">
+      <Setter Property="Fill" Value="LightGray"/> 
+      <Setter Property="Stroke" Value="DarkGray"/>
+      <Setter Property="RadiusX" Value="12"/>
+      <Setter Property="RadiusY" Value="12"/>
+    </Style>
+    <Style TargetType="TextBlock">
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+      <Setter Property="Canvas.Top" Value="2"/>
+      <Setter Property="Canvas.Left" Value="4"/>
+    </Style>
+  </UserControl.Resources>
+
+  <Viewbox Stretch="Uniform">
+    <Canvas x:Name="keyboard" Width="1313.354" Height="395.38502">
+      <Rectangle Width="1313.354" Height="395.385" Style="{StaticResource keyboardCase}" />
+      <Canvas Tag="01">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.437" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="29">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.437" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="02">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="80.85" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="03">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="136.253" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="04">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="191.657" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="05">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="247.07" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="06">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="302.482" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="07">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="357.886" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="08">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="413.289" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="09">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="468.702" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0A">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="524.113" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="579.508" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="634.922" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="690.323" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0E">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="746.381" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="95.85" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="10">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="105.732" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="11">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="161.079" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="12">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="216.435" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="13">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="271.781" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="14">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="327.137" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="15">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="382.483" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="16">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="437.84" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="17">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="493.186" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="18">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="548.542" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="19">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="603.898" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="1A">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="659.245" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="1B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="714.582" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="1E">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="129.999" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="1F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="186.028" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="20">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="242.056" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="21">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="298.095" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="22">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="354.123" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="23">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="410.162" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="24">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="466.199" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="25">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="522.238" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="26">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="578.257" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="27">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="634.296" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="28">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="690.323" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="2C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="154.247" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="2D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="208.418" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="2E">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="262.599" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="2F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="316.771" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="30">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="370.942" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="31">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="425.123" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="32">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="479.295" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="33">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="533.457" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="34">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="587.638" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="35">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="641.818" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="1D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.436" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.464" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E05B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="93.614" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.464" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="38">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="161.789" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.464" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E038">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="577.101" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.464" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="39">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="229.965" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="338.423" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E05C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="645.259" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.463" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E05D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="713.444" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.463" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E01D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="781.593" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="59.463" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="3B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="122.599" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="3C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="178.002" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="3D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="233.406" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="3E">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="288.819" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="3F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="374.685" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="40">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="430.088" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="41">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="485.492" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="42">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="540.904" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="43">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="626.772" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.335" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="44">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="682.176" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="57">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="737.589" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="58">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="793.002" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="54">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="878.85" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="46">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="934.263" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E11D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="989.675" Y="26.35"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="0F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.437" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="71.592" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="2B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="770.638" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="71.592" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="52">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1075.153" Y="323.274"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="103.107" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="53">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1186.348" Y="323.274"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E053">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="878.85" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E04F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="934.263" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E051">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="989.675" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E048">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="934.263" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E04B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="878.85" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E050">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="934.263" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E04D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="989.675" Y="323.293"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="2A">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.437" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="120.111" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="36">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="697.868" Y="267.256"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="144.363" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="3A">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="25.438" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="95.854" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="1C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="746.381" Y="211.217"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="95.85" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E052">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="878.85" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E047">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="934.263" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E049">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="989.675" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="45">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1075.562" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="E035">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1130.936" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="37">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1186.348" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="4A">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1241.761" Y="99.121"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="47">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1075.562" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="48">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1130.936" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="49">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1186.348" Y="155.16"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.335" />
+      </Canvas>
+      <Canvas Tag="4E">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1241.761" Y="155.159"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="103.922" />
+      </Canvas>
+      <Canvas Tag="4B">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1075.562" Y="211.197"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="4C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1130.936" Y="211.197"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="4D">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1186.348" Y="211.197"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="4F">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1075.562" Y="267.236"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="50">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1130.936" Y="267.236"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="51">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1186.348" Y="267.236"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="47.334" />
+      </Canvas>
+      <Canvas Tag="E01C">
+        <Canvas.RenderTransform>
+          <TranslateTransform X="1241.761" Y="267.234"/>
+        </Canvas.RenderTransform>
+        <Rectangle Width="47.334" Height="103.811" />
+      </Canvas>
+    </Canvas>
+  </Viewbox>
+
+</UserControl>

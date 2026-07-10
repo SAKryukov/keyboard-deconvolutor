@@ -1,0 +1,19 @@
+﻿<Project>
+ 
+  <PropertyGroup> <!-- customize:  -->
+
+    <TargetFramework>net10.0</TargetFramework>
+    <CustomUnifiedVersion>0.0.0.1</CustomUnifiedVersion>
+    <!-- can be alpha, beta, RC1, RC2, etc.: -->
+    <CustomInformationalVersionSuffix>pre-alpha</CustomInformationalVersionSuffix>
+    <Copyright>Copyright © 2026 Sergey A Kryukov</Copyright>
+    <Product>Keyboard Deconvolutor</Product>
+    <Description>Keyboard Deconvolutor is a system application used to remap low-level keyboard scan codes for different systems</Description>
+    <Company>SA</Company>
+    <AssemblyTitle>$(Product)</AssemblyTitle>
+
+    <RootNamespace>SA</RootNamespace>
+
+  </PropertyGroup>
+
+</Project>

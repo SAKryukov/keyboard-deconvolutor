@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Agnostic/Core/Agnostic.Core.csproj" />
+  <Project Path="Agnostic/Ui/Agnostic.UI.csproj" />
+  <Project Path="Application/KeyboardDeconvolutor.csproj" />
+  <Project Path="Semantic/Semantic.csproj" />
+  <Project Path="Admin/admin.to-windows-registry/Admin.To-Windows-Registry.csproj" />
+</Solution>

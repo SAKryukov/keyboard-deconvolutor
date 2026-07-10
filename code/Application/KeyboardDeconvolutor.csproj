@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>SA</RootNamespace>
+    <AssemblyTitle>$(AssemblyTitle)</AssemblyTitle>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(TargetFramework)-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDirectory)Agnostic/Core/Agnostic.Core.csproj" />
+    <ProjectReference Include="$(SolutionDirectory)Agnostic/Ui/Agnostic.UI.csproj" />
+    <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Resources/help.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>  
+
+</Project>
