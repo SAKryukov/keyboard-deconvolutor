@@ -11,6 +11,7 @@
         ResizeMode="CanResizeWithGrip">
 
   <Window.Resources>
+    <Thickness x:Key="statusBarItemMargin">8 0 20 0</Thickness>
     <system:Double x:Key="fontSizeDefault">18</system:Double>
     <Style x:Key="focusRectangle">
       <Setter Property="Control.Template">
@@ -257,8 +258,11 @@
     </Border>
     <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Gray" BorderThickness="0, 1, 0, 0">
       <StatusBar FontSize="{StaticResource fontSizeDefault}">
+        <StatusBarItem HorizontalAlignment="Left">
+          <TextBlock x:Name="issue" Margin="{StaticResource statusBarItemMargin}" Foreground="Red" FontWeight="Bold"/>
+        </StatusBarItem>
         <StatusBarItem HorizontalAlignment="Right">
-          <TextBlock x:Name="status" Margin="0 0 20 0">Mapping</TextBlock>
+          <TextBlock x:Name="status" Margin="{StaticResource statusBarItemMargin}">Mapping</TextBlock>
         </StatusBarItem>
       </StatusBar>
     </Border>

@@ -15,9 +15,6 @@ public partial class WindowMain : Window {
         map.ItemsSource = ViewModel.MappingView.ItemsSource;
         comboBoxOriginalSelector.ItemsSource = ViewModel.KeySetView.ItemsSource;
         comboBoxReplacementSelector.ItemsSource = ViewModel.KeySetView.ItemsSource;
-        map.SelectionChanged += (_, eventArgs) => {
-            this.status.Text = ViewModel.MappingView.MappingLegend(map.SelectedIndex);
-        }; //gridMap.SelectionChanged
         arrowOriginal.Alternative = arrowReplacement;
         arrowReplacement.Alternative = arrowOriginal;
         arrowOriginal.IsChecked = true;
@@ -40,6 +37,10 @@ public partial class WindowMain : Window {
         }; //menuStart.MouseDown
         FixMenu();
         AddCommandBindings();
+        statusBarWrapper = new(issue, status);
+        map.SelectionChanged += (_, eventArgs) => {
+            statusBarWrapper.Mapping = ViewModel.MappingView.MappingLegend(map.SelectedIndex);
+        }; //gridMap.SelectionChanged
     } //WindowMain
 
     protected override void OnSourceInitialized(EventArgs eventArgs) {
@@ -58,11 +59,13 @@ public partial class WindowMain : Window {
     void AddToMap() {
             ScanCode original = ViewModel.KeySetView.FromIndex(comboBoxOriginalSelector.SelectedIndex);
             ScanCode replacement = ViewModel.KeySetView.FromIndex(comboBoxReplacementSelector.SelectedIndex);
-            ViewModel.MappingView.Add(original, replacement);
+            bool redundant = ViewModel.MappingView.Add(original, replacement);
             map.SelectedIndex = ViewModel.MappingView.Count - 1;
             map.ScrollIntoView(map.SelectedItem);
             map.Focus();
             isModified = true;
+            if (!redundant) return;
+            statusBarWrapper.Issue = DefinitionSet.StatusBarDuplicateIssue(original);
     } //AddToMap
     void RemoveFromMap() {
             bool wasFocused = map.IsKeyboardFocusWithin;
@@ -127,5 +130,6 @@ public partial class WindowMain : Window {
     bool isModified = false;
     readonly About about = new();
     readonly ApplicationCloser applicationCloser = new();
+    readonly Controls.StatusBarWrapper statusBarWrapper;
 
 } //class WindowMain
