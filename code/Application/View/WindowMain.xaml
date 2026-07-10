@@ -48,7 +48,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0"
           Text="{Binding ScanCode}"
-          FontFamily="monospace"
+          FontFamily="Consolas, Courier New, Global Monospace"
           FontWeight="Bold"
           Foreground="Blue"
           VerticalAlignment="Bottom"/>

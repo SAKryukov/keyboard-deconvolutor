@@ -29,11 +29,10 @@ static partial class DefinitionSet {
             : c.ToString())).TrimStart();
     } //FromCamelCase
 
-    readonly static Regex regexKeyF = regexKeyFInitializer();
     [System.Text.RegularExpressions.GeneratedRegex("F[0-9 ]+")]
-    private static partial Regex regexKeyFInitializer();
-
-    static string KeyNameDigitOrF(string name) { //two special cased D1-D9, D0 and F10-F24
+    private static partial Regex RegexKeyFInitializer();
+    readonly static Regex regexKeyF = RegexKeyFInitializer();
+    static string KeyNameDigitOrF(string name) { //two special cases: D0, D1-D9, and F10-F24
         if (regexKeyF.IsMatch(name, 0)) {
             return name.Replace(" ", "");
         } else if ((name.Length == 2) && (name[0] == 'D') && char.IsDigit(name[1]))
