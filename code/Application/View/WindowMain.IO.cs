@@ -43,10 +43,24 @@ public partial class WindowMain {
     static void Load(string filename) {
         ViewModel.MappingView.Clear();
         Semantic.DataModel model = Agnostic.Persistence<Semantic.DataModel>.Load(filename);
-        int count = model.Replacements.Length;
-        for (int index = 0; index < count; ++index)
-            ViewModel.MappingView.Add(model.Replacements[index].Original, model.Replacements[index].Replacement);
+        LoadFromModel(model);
     } //Load
+    static void LoadFromModel(Semantic.DataModel model) {
+        int count = model.Replacements.Length;
+        for (int index = 0; index < count; ++index) {
+            Semantic.ScanCode original = model.Replacements[index].Original;
+            if (!ViewModel.KeySetView.KeyFound(original)) continue;
+            Semantic.ScanCode replacement = model.Replacements[index].Replacement;
+            if (!ViewModel.KeySetView.KeyFound(replacement)) continue;
+            ViewModel.MappingView.Add(original, replacement); 
+        } //loop
+    } //LoadFromModel
+    void LoadFromRegistry() {
+        var model = Semantic.RegistredModel.GetData();
+        if (model == null) return;
+        LoadFromModel(model);
+        isModified = false;
+    } //LoadFromRegistry
     
     readonly OpenFileDialog openFileDialog = new();
     readonly SaveFileDialog saveFileDialog = new();

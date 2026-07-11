@@ -1,3 +1,5 @@
+using System.Windows;
+
 namespace SA.Semantic;
 
 static class DefinitionSet {
@@ -9,5 +11,28 @@ static class DefinitionSet {
         internal const string collectionName = "Replacements";
         internal const string scanCodeName = "ScanCode";
     } //class DataContract
+    
+    internal static class Registry {
+        internal const string Key = @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout";
+        internal const string ReadValue = "Scancode Map";
+        #if DEBUG
+        internal const string WriteValue = "Test.Scancode.Map";
+        #else
+        internal const string WriteValueValue = ReadValue;
+        #endif
+        internal const int dataOffset = 8; 
+        internal const int sizeOfsize = 4; 
+        internal const string sizeMismatchException =
+            "Corrupted data in the system Registry, " +
+            $"structure size mismatch; key: \"{Key}\", value: \"{ReadValue}\"";
+    } //class Registry
+
+    internal static class RegistryFile {
+        internal static string Template(string key, string valueName, string data) =>
+            $"Windows Registry Editor Version 5.00\n\n[{key}]\n\"{valueName}\"=hex:{data}";
+        internal static string FormatByte(byte value) => value.ToString("X2");
+        internal const string byteSeparator = ",";
+    } //class RegistryFile
+
 
 } //DefinitionSet

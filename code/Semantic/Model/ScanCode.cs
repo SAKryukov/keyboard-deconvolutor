@@ -10,6 +10,8 @@ public class ScanCode(ScanCodeValue value) {
     public ScanCode() : this(InvalidValue) { }
     [DataMember(Name = DefinitionSet.DataContract.scanCodeName)]
     public ScanCodeValue Value { get; init; } = value;
+
+    internal static int DataSize { get; } = sizeof(ScanCodeValue);
     
     public static bool operator ==(ScanCode left, ScanCode right) {
         if (Equals(left, null) && Equals(right, null)) return true;
@@ -35,6 +37,7 @@ public class ScanCode(ScanCodeValue value) {
         public ScanCode Original { get; set; }
         [DataMember]
         public ScanCode Replacement { get; set; }
+        internal static int DataSize { get; } = ScanCode.DataSize + ScanCode.DataSize;
     } //MappingElement
 
 } //class ScanCode

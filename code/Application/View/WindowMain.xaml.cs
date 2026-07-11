@@ -41,6 +41,7 @@ public partial class WindowMain : Window {
         map.SelectionChanged += (_, eventArgs) => {
             statusBarWrapper.Mapping = ViewModel.MappingView.MappingLegend(map.SelectedIndex);
         }; //gridMap.SelectionChanged
+        LoadFromRegistry();
     } //WindowMain
 
     protected override void OnSourceInitialized(EventArgs eventArgs) {
