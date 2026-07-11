@@ -56,7 +56,7 @@ public partial class WindowMain {
         } //loop
     } //LoadFromModel
     void LoadFromRegistry() {
-        var model = Semantic.RegistredModel.GetData();
+        var model = Semantic.RegistryStorage.GetData();
         if (model == null) return;
         LoadFromModel(model);
         isModified = false;

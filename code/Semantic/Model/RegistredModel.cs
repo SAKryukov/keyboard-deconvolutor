@@ -1,26 +1,11 @@
 namespace SA.Semantic;
-using Registry = Microsoft.Win32.Registry;
 using MemoryStream = System.IO.MemoryStream;
 using SeekOrigin = System.IO.SeekOrigin;
 using BitConverter = System.BitConverter;
 using SizeMismatchException = System.IO.InvalidDataException;
 using StringList = System.Collections.Generic.List<string>;
 
-public static class RegistredModel {
-
-    public static DataModel GetData() {
-        byte[] data = (byte[])Registry.GetValue(DefinitionSet.Registry.Key, DefinitionSet.Registry.ReadValue, null);
-        DataModel model = DataToModel(data);
-        return model;
-    } //GetData
-
-    public static void SetData(DataModel model) {
-        if (model == null) return;
-        if (model.Replacements == null) return;
-        if (model.Replacements.Length < 0) return;
-        byte[] data = ModelToData(model);
-        Registry.SetValue(DefinitionSet.Registry.Key, DefinitionSet.Registry.WriteValue, data);
-    } //SetData
+public static class RegisteredModel {
 
     public static void ModelToRegistryFile(DataModel model, string filename) {
         System.IO.File.WriteAllText(filename, ModelToRegistryFileString(model));
@@ -41,7 +26,7 @@ public static class RegistredModel {
             dataLine);
     } //ModelToRegistryFileString
 
-    static DataModel DataToModel(byte[] data) {
+    public static DataModel DataToModel(byte[] data) {
         DataModel model = new();
         if (data == null) return null;
         byte[] replacementArray = new byte[ScanCode.DataSize];
@@ -64,7 +49,7 @@ public static class RegistredModel {
         return model;        
     } //DataToModel
 
-    static byte[] ModelToData(DataModel model) {
+    public static byte[] ModelToData(DataModel model) {
         int dataSize = (model.Replacements.Length + 1) * ScanCode.MappingElement.DataSize + sizeof (int) + DefinitionSet.Registry.dataOffset;
         byte[] data = new byte[dataSize];
         using MemoryStream stream = new(data);
@@ -81,4 +66,4 @@ public static class RegistredModel {
         return data;
     } //ModelToData
 
-} //class RegistredModel
+} //class RegisteredModel

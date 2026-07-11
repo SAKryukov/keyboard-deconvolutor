@@ -1,8 +1,6 @@
-using System.Windows;
-
 namespace SA.Semantic;
 
-static class DefinitionSet {
+public static class DefinitionSet {
 
     internal static class DataContract {
         internal const string topName = "ScanCodeMapping";
@@ -12,13 +10,13 @@ static class DefinitionSet {
         internal const string scanCodeName = "ScanCode";
     } //class DataContract
     
-    internal static class Registry {
-        internal const string Key = @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout";
-        internal const string ReadValue = "Scancode Map";
+    public static class Registry {
+        public const string Key = @"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout";
+        public const string ReadValue = "Scancode Map";
         #if DEBUG
-        internal const string WriteValue = "Test.Scancode.Map";
+        public const string WriteValue = "Test.Scancode.Map";
         #else
-        internal const string WriteValueValue = ReadValue;
+        public const string WriteValueValue = ReadValue;
         #endif
         internal const int dataOffset = 8; 
         internal const int sizeOfsize = 4; 

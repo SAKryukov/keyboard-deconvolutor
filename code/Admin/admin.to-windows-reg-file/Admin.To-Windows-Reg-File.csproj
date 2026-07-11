@@ -3,16 +3,11 @@
   <PropertyGroup>
     <RootNamespace>SA</RootNamespace>
     <OutputType>exe</OutputType>
-    <TargetFramework>$(TargetFramework)-windows</TargetFramework>
+    <TargetFramework>$(TargetFramework)</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  
   <ItemGroup>
     <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
-    <ProjectReference Include="$(SolutionDirectory)Semantic.Windows/Semantic.Windows.csproj" />
   </ItemGroup>
 
 </Project>

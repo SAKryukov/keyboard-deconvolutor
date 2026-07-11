@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(TargetFramework)-windows</TargetFramework>
+    <RootNamespace>SA.Agnostic</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
+  </ItemGroup>
+  
+</Project>

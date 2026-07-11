@@ -3,5 +3,8 @@
   <Project Path="Agnostic/Ui/Agnostic.UI.csproj" />
   <Project Path="Application/KeyboardDeconvolutor.csproj" />
   <Project Path="Semantic/Semantic.csproj" />
+  <Project Path="Semantic.Windows/Semantic.Windows.csproj" />
   <Project Path="Admin/admin.to-windows-registry/Admin.To-Windows-Registry.csproj" />
+  <Project Path="Admin/admin.to-windows-reg-file/Admin.To-Windows-Reg-File.csproj" />
+
 </Solution>

@@ -13,6 +13,7 @@
     <ProjectReference Include="$(SolutionDirectory)Agnostic/Core/Agnostic.Core.csproj" />
     <ProjectReference Include="$(SolutionDirectory)Agnostic/Ui/Agnostic.UI.csproj" />
     <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
+    <ProjectReference Include="$(SolutionDirectory)Semantic.Windows/Semantic.Windows.csproj" />
   </ItemGroup>
   
   <ItemGroup>
