@@ -11,7 +11,7 @@ public static class RegisteredModel {
         System.IO.File.WriteAllText(filename, ModelToRegistryFileString(model));
     } //ModelToRegistryFile
 
-    static string ModelToRegistryFileString(DataModel model) {
+    public static string ModelToRegistryFileString(DataModel model) {
         if (model == null) return null;
         if (model.Replacements == null) return null;
         if (model.Replacements.Length < 0) return null;

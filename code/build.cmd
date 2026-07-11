@@ -1,5 +1,5 @@
 @echo off
 
 dotnet build -c Debug
-goto :eof
+REM goto :eof
 dotnet build -c Release

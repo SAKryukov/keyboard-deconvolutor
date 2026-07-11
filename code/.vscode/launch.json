@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "MainApplication",
             "type": "coreclr",
@@ -12,5 +13,17 @@
             "stopAtEntry": false,
             "console": "internalConsole"
         },       
+        {
+            "name": "To Registry",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/output.AnyCPU.Debug/Admin.To-Windows-Registry.exe",
+            "args": ["/sa/papers/My/GitHub/keyboard-deconvolutor.Test.Data/Registry.scan-code-mapping"],
+            "preLaunchTask": "incrementalBuild",
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": true,
+            "console": "internalConsole"
+        }
+        
     ]
 }

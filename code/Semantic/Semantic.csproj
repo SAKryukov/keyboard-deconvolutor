@@ -5,4 +5,8 @@
     <RootNamespace>SA.Agnostic</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDirectory)Agnostic/Core/Agnostic.Core.csproj" />
+  </ItemGroup>
+
 </Project>

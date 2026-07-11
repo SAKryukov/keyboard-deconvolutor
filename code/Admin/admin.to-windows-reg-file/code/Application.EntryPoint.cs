@@ -1,7 +1,12 @@
 namespace SA;
 
-static class TestStart {
-    [System.STAThread]
+static class EntryPoint {
+
+    static string HelpFormat(string applicationName) =>
+        $"Usage: {applicationName} <mapping file name> <registry file name>";
+
     static void Main(string[] args) {
+        Semantic.AdminUtilitySet.ToRegistryFileEntryPoint(HelpFormat, args);
     } //Main
-} //class TestStart
+
+} //class EntryPoint

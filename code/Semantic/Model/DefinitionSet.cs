@@ -16,7 +16,7 @@ public static class DefinitionSet {
         #if DEBUG
         public const string WriteValue = "Test.Scancode.Map";
         #else
-        public const string WriteValueValue = ReadValue;
+        public const string WriteValue = ReadValue;
         #endif
         internal const int dataOffset = 8; 
         internal const int sizeOfsize = 4; 
@@ -32,5 +32,20 @@ public static class DefinitionSet {
         internal const string byteSeparator = ",";
     } //class RegistryFile
 
+    public static class Admin {
+        static readonly string OpenQuote = $"{char.ConvertFromUtf32(0x201C)}";
+        static readonly string CloseQuote = $"{char.ConvertFromUtf32(0x201D)}";
+        internal static string FileNotFound(string fileName) =>
+            $"File {OpenQuote}{fileName}{CloseQuote} not found";
+        internal static string RegistryFileCreated(string fileName) =>
+            $"Registry file {OpenQuote}{fileName}{CloseQuote} created";
+        public static string RegistryEntryCreated {
+            get {
+                return
+                    $"Registry entry created:" +
+                    $"key: {OpenQuote}Registry.Key{CloseQuote}, value: {OpenQuote}Registry.WriteValue{CloseQuote}";
+            } //get RegistryEntryCreated
+        } //RegistryEntryCreated
+    } //class Admin
 
 } //DefinitionSet
