@@ -1,0 +1,10 @@
+        * { font-family: sans-serif; }
+        .title { font-size: 240%; border-bottom: solid thin black; }
+        h1 { font-size: 180%; }
+        h2 { font-size: 110%; }
+        code, pre {
+            background-color: hsl(198, 35%, 90%);
+            padding-left: 0.2em; padding-right: 0.2em;
+        }
+        b { border: black solid thin; padding-left: 0.4em; padding-right: 0.4em }
+        
