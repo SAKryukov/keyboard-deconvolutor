@@ -1,9 +1,8 @@
 {
     "version": "0.2.0",
     "configurations": [
-
         {
-            "name": "MainApplication",
+            "name": "Main",
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/output.AnyCPU.Debug/KeyboardDeconvolutor.exe",

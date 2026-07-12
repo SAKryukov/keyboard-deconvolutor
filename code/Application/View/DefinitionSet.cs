@@ -2,11 +2,6 @@ namespace SA;
 
 static class DefinitionSet {
 
-    internal static class Help {
-        internal const string directory = "Resources";
-        internal const string file = "help.html";
-    } //Help
-
     internal const string sourceCode = "https://github.com/SAKryukov/keyboard-deconvolutor";
 
     internal static string StatusBarDuplicateIssue(Semantic.ScanCode scanCode) =>

@@ -5,7 +5,6 @@ using MessageBoxImage = System.Windows.MessageBoxImage;
 using MessageBoxResult = System.Windows.MessageBoxResult;
 using LocalDefinitionSet = Windows.DefinitionSet;
 using File = System.IO.File;
-using Path = System.IO.Path;
 
 public static class AdminUtilitySetWindows {
 
@@ -19,7 +18,7 @@ public static class AdminUtilitySetWindows {
             MessageBoxImage.Exclamation,
             MessageBoxResult.No);
         if (decision != MessageBoxResult.Yes) { Utility.ShowHelpInBrowser(); return; }
-        //Core(inputFile);
+        Core(inputFile);
         MessageBox.Show(
             LocalDefinitionSet.RegistryEntryCreated,
             LocalDefinitionSet.Title,
@@ -36,7 +35,7 @@ public static class AdminUtilitySetWindows {
         string message = notExistingFilename == null
             ? LocalDefinitionSet.Usage(AdminUtilitySet.ApplicationName)
             : LocalDefinitionSet.Usage(AdminUtilitySet.ApplicationName, notExistingFilename);
-        MessageBox.Show(message, LocalDefinitionSet.Title, MessageBoxButton.CancelTryContinue, MessageBoxImage.Stop);
+        MessageBox.Show(message, LocalDefinitionSet.Title, MessageBoxButton.OK, MessageBoxImage.Stop);
     } //Usage
 
     static string FilenameOrHelp(string[] args) {

@@ -2,7 +2,6 @@
 using System;
 using System.Windows;
 using Application = System.Windows.Application;
-using Path = System.IO.Path;
 using AdvancedApplicationBase = Agnostic.UI.AdvancedApplicationBase;
 
 public partial class About : Window {
@@ -11,7 +10,7 @@ public partial class About : Window {
         InitializeComponent();
         description.Text = application.AssemblyDescription;
         buttonClose.Click += (_, _) => Hide();
-        buttonDetailedHelp.Click += (_, _) => ShowDetailedHelp();
+        buttonDetailedHelp.Click += (_, _) => Semantic.Utility.ShowHelpInBrowser();
         buttonSourceCode.Click += (_, _) => ShowSourceCode();
     } //About
     
@@ -33,12 +32,6 @@ public partial class About : Window {
             UseShellExecute = true
         });
     } //ShowIri
-
-    void ShowDetailedHelp() {
-        string location = application.ExecutableDirectory;
-        location = Path.Join(location, DefinitionSet.Help.directory, DefinitionSet.Help.file);
-        ShowIri(location);
-    } //ShowDetailedHelp
 
     static void ShowSourceCode() => ShowIri(DefinitionSet.sourceCode);
 
