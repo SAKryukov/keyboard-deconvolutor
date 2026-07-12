@@ -29,7 +29,8 @@ public static class DefinitionSet {
             string closeQuote = Semantic.DefinitionSet.Admin.CloseQuote;
             return
                 $"Registry entry created:\n\n" +
-                $"Key: {openQuote}{Semantic.DefinitionSet.Registry.Key}{closeQuote},\nValue: {openQuote}{Semantic.DefinitionSet.Registry.WriteValue}{closeQuote}";
+                $"Key: {openQuote}{Semantic.DefinitionSet.Registry.Key}{closeQuote},\nValue: {openQuote}{Semantic.DefinitionSet.Registry.WriteValue}{closeQuote}." +
+                "\n\nThe scan code mappings will be effective after the next user logon.";
         } //get RegistryEntryCreated
     } //RegistryEntryCreated
 
