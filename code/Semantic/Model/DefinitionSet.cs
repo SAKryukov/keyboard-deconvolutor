@@ -33,19 +33,16 @@ public static class DefinitionSet {
     } //class RegistryFile
 
     public static class Admin {
-        static readonly string OpenQuote = $"{char.ConvertFromUtf32(0x201C)}";
-        static readonly string CloseQuote = $"{char.ConvertFromUtf32(0x201D)}";
+        public static readonly string OpenQuote = $"{char.ConvertFromUtf32(0x201C)}";
+        public static readonly string CloseQuote = $"{char.ConvertFromUtf32(0x201D)}";
         internal static string FileNotFound(string fileName) =>
             $"File {OpenQuote}{fileName}{CloseQuote} not found";
         internal static string RegistryFileCreated(string fileName) =>
             $"Registry file {OpenQuote}{fileName}{CloseQuote} created";
-        public static string RegistryEntryCreated {
-            get {
-                return
-                    $"Registry entry created:" +
-                    $"key: {OpenQuote}Registry.Key{CloseQuote}, value: {OpenQuote}Registry.WriteValue{CloseQuote}";
-            } //get RegistryEntryCreated
-        } //RegistryEntryCreated
     } //class Admin
+    
+    internal static class Utility {
+        internal static readonly string[] helpLocation = ["Resources", "Help.html"];
+    } //Utility
 
 } //DefinitionSet

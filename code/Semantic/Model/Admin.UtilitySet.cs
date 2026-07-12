@@ -18,7 +18,7 @@ public static class AdminUtilitySet {
     public static string FilenameOrHelp(HelpFormat format, string[] args) {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         if (args.Length != 1) {
-            System.Console.WriteLine(format(ApplicationName));
+            Console.WriteLine(format(ApplicationName));
             return null;
         } else {
             if (!File.Exists(args[0])) {
@@ -27,7 +27,7 @@ public static class AdminUtilitySet {
                 return null;               
             } //if
             return args[0];
-        }
+        } //if
     } //FilenameOrHelp
     
     public static (string inputFile, string outputFile) TwoFilenamesOrHelp(HelpFormat format, string[] args) {
@@ -44,7 +44,7 @@ public static class AdminUtilitySet {
            return (args[0], args[1]);
     } //FilenameOrHelp
 
-    static string ApplicationName {
+    public static string ApplicationName {
         get {
             string location = System.Reflection.Assembly.GetEntryAssembly().Location;
             return Path.GetFileNameWithoutExtension(location);
