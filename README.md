@@ -4,4 +4,4 @@
 
 Keyboard Deconvolutor is a system application used to remap low-level keyboard scan codes for different systems
 
-(Under development, almost ready)
+See also: [Кeyboard Layout Аssistant](https://github.com/SAKryukov/keyboard-layout-assistant)
