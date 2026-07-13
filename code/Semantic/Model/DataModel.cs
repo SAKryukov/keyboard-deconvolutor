@@ -7,6 +7,10 @@ using MappintElementList = System.Collections.Generic.List<ScanCode.MappingEleme
 [DataContract(Name=DefinitionSet.DataContract.topName, Namespace=DefinitionSet.DataContract.namespaceUri)]
 public class DataModel {
 
+    [DataMember(Name = DefinitionSet.DataContract.metadataName)]
+    DataModelMetadata dataModelMetadata = new();
+    internal DataModelMetadata DataModelMetadata { get { return dataModelMetadata; } }
+
     [DataMember(Name = DefinitionSet.DataContract.collectionName)]
     ScanCode.MappingElement[] replacements;
     public ScanCode.MappingElement[] Replacements { get { return replacements; } set { replacements = value; } }

@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using Application = System.Windows.Application;
 using AdvancedApplicationBase = Agnostic.UI.AdvancedApplicationBase;
+using AssemblyWrapper = Agnostic.AssemblyWrapper;
 
 public partial class About : Window {
 
@@ -10,7 +11,7 @@ public partial class About : Window {
         InitializeComponent();
         description.Text = application.AssemblyDescription;
         buttonClose.Click += (_, _) => Hide();
-        buttonDetailedHelp.Click += (_, _) => Semantic.Utility.ShowHelpInBrowser();
+        buttonDetailedHelp.Click += (_, _) => Semantic.Utility.ShowHelpInBrowser(assemblyWrapper);
         buttonSourceCode.Click += (_, _) => ShowSourceCode();
     } //About
     
@@ -41,11 +42,7 @@ public partial class About : Window {
     } //OnContentRendered
 
     readonly AdvancedApplicationBase application = (AdvancedApplicationBase)Application.Current;
-    /*
-    protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo) {
-        base.OnRenderSizeChanged(sizeInfo);
-        Title = $"{ActualWidth}x{ActualHeight}";
-    }
-    */
+    readonly AssemblyWrapper assemblyWrapper = new();
+
 
 } //class WindowMain

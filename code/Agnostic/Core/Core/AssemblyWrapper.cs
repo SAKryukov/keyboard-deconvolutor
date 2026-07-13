@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2004-2025 by Sergey A Kryukov
+    Copyright (C) 2004-2026 by Sergey A Kryukov
     http://www.SAKryukov.org
 */
 
@@ -11,9 +11,9 @@ namespace SA.Agnostic {
     using Version = System.Version;
     using MetadataDictionary = System.Collections.Generic.Dictionary<string, string>;
 
-    public class AssemblyWrapper : Assembly {
-
-        public AssemblyWrapper(Assembly anAssembly) { assembly = anAssembly; }
+    public class AssemblyWrapper(Assembly anAssembly) : Assembly {
+        
+        public AssemblyWrapper() : this(GetEntryAssembly()) {}
 
         public string CompanyName {
             get {
@@ -200,7 +200,7 @@ namespace SA.Agnostic {
 
         public Assembly Assembly { get { return assembly; } }
 
-        readonly Assembly assembly;
+        readonly Assembly assembly = anAssembly;
         string executablePath, productName, title, copyright, companyName, assemblyDescription, assemblyConfiguration;
         string targetFrameworkName, targetFrameworkDisplayName, targetPlatformName, supportedOSPlatformName;
         string[] authors;

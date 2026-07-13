@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ScanCodeMapping xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://github.com/SAKryukov/keyboard-deconvolutor">
+	<Metadata>
+		<ModelVersion>
+			<Major>1</Major>
+			<Minor>0</Minor>
+			<Build>0</Build>
+			<Revision>0</Revision>
+		</ModelVersion>
+		<SoftwareVersion>
+			<Major>1</Major>
+			<Minor>0</Minor>
+			<Build>0</Build>
+			<Revision>0</Revision>
+		</SoftwareVersion>
+	</Metadata>
 	<Replacements>
 		<Map>
 			<Original>

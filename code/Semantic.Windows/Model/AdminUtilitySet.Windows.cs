@@ -5,6 +5,7 @@ using MessageBoxImage = System.Windows.MessageBoxImage;
 using MessageBoxResult = System.Windows.MessageBoxResult;
 using LocalDefinitionSet = Windows.DefinitionSet;
 using File = System.IO.File;
+using AssemblyWrapper = Agnostic.AssemblyWrapper;
 
 public static class AdminUtilitySetWindows {
 
@@ -17,7 +18,8 @@ public static class AdminUtilitySetWindows {
             MessageBoxButton.YesNo,
             MessageBoxImage.Exclamation,
             MessageBoxResult.No);
-        if (decision != MessageBoxResult.Yes) { Utility.ShowHelpInBrowser(); return; }
+        AssemblyWrapper assemblyWrapper = new();
+        if (decision != MessageBoxResult.Yes) { Utility.ShowHelpInBrowser(assemblyWrapper); return; }
         Core(inputFile);
         MessageBox.Show(
             LocalDefinitionSet.RegistryEntryCreated,
