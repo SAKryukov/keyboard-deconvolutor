@@ -1,0 +1,130 @@
+<ContextMenu
+    x:Class="SA.Controls.MainMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:controls="clr-namespace:SA.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ContextMenu.Resources>
+
+        <CornerRadius x:Key="cornerRadius">4.3</CornerRadius>
+        <Thickness x:Key="marginIcon">12 0 14 0</Thickness>
+        <Thickness x:Key="marginHeader">0 0 16 0</Thickness>
+        <Thickness x:Key="marginGesture">0 0 16 0</Thickness>
+        <Thickness x:Key="marginSeparator">0 3 0 3</Thickness>
+        
+        <Brush x:Key="menuBackground">GhostWhite</Brush>
+        <!-- 
+        <Brush x:Key="hightlightBackground">LightBlue</Brush>
+        <Brush x:Key="hightlightForeground">Black</Brush>
+        -->
+        <Brush x:Key="hightlightBackground">#2000CC</Brush>
+        <Brush x:Key="hightlightForeground">White</Brush>
+        <Brush x:Key="colorLines">Gray</Brush>
+
+        <Thickness x:Key="lineThicknessMenu">2</Thickness>
+        <system:Double x:Key="lineThicknessSeparator">1</system:Double>
+
+        <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <!-- Setters for OverridesDefaultStyle, Background, Padding, etc. -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border x:Name="TemplateRoot" Background="{TemplateBinding Background}" CornerRadius="{StaticResource cornerRadius}">
+                        <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="MenuIconGroup"/>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="MenuHeaderGroup"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentControl x:Name="IconContainer" Grid.Column="0" Content="{TemplateBinding Icon}" HorizontalAlignment="Center" Margin="{StaticResource marginIcon}"/>
+                        <ContentPresenter x:Name="HeaderPresenter" Grid.Column="1" ContentSource="Header" Margin="{StaticResource marginHeader}"/>
+                        <TextBlock FontWeight="Normal" x:Name="GestureText" Grid.Column="2" Text="{TemplateBinding InputGestureText}" Foreground="Black" Margin="{StaticResource marginGesture}"/>
+                        </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="TemplateRoot" Property="Background" Value="{StaticResource hightlightBackground}"/>
+                                <Setter Property="Foreground" Value="{StaticResource hightlightForeground}"/>
+                            </Trigger>
+                            <!-- Antidote for the programmatic Bold focus anomaly -->
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="FontWeight" Value="Normal" />
+                            </Trigger>                     
+                            <Trigger Property="Icon" Value="{x:Null}">
+                                <Setter TargetName="IconContainer" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="Icon" Value="">
+                                <Setter TargetName="IconContainer" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="InputGestureText" Value="">
+                                <Setter TargetName="GestureText" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="InputGestureText" Value="{x:Null}">
+                                <Setter TargetName="GestureText" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style> <!-- MenuItem -->
+
+        <Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="{StaticResource marginSeparator}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Separator}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="MenuIconGroup"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Column="1" Height="{StaticResource lineThicknessSeparator}" Fill="{StaticResource colorLines}"/>
+                    </Grid>
+                </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style> <!-- Separator -->
+
+        <Style TargetType="{x:Type controls:MainMenu}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:MainMenu}">
+                <Border Background="{StaticResource menuBackground}" 
+                        BorderBrush="{StaticResource colorLines}" 
+                        BorderThickness="{StaticResource lineThicknessMenu}" 
+                        CornerRadius="{StaticResource cornerRadius}"
+                        Padding="0">
+                    <Grid Grid.IsSharedSizeScope="True">
+                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                </Border>
+                </ControlTemplate>
+            </Setter.Value>
+            </Setter>
+        </Style> <!-- controls:MainMenu -->
+        
+    </ContextMenu.Resources>
+
+    <MenuItem Header="Open..." Command="ApplicationCommands.Open" Icon="📖"/><!-- ䷉ -->
+    <MenuItem Header="Save" Command="ApplicationCommands.Save" Icon="💰"/>
+    <MenuItem Header="Save As..." Command="ApplicationCommands.SaveAs">
+    </MenuItem>
+    <Separator/>
+    <MenuItem Header="Help..." Command="ApplicationCommands.Help">
+        <MenuItem.Icon>
+            <TextBlock Foreground="LightGreen" Padding="1 0 1 2" Background="{StaticResource hightlightBackground}">❓</TextBlock>
+        </MenuItem.Icon>
+    </MenuItem>
+    <Separator/>
+    <MenuItem Header="Quit" Command="ApplicationCommands.Close">
+        <MenuItem.Icon>
+            <TextBlock Foreground="Red">❌</TextBlock>
+        </MenuItem.Icon>
+    </MenuItem>
+
+</ContextMenu>

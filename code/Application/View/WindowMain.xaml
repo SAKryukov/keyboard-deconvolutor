@@ -147,25 +147,7 @@
   </Window.Resources>
 
   <Window.ContextMenu>
-    <ContextMenu FontSize="20" StaysOpen="true">
-      <MenuItem Header="Open..." Command="ApplicationCommands.Open">
-        <MenuItem.Icon><TextBlock FontSize="16">䷉</TextBlock></MenuItem.Icon>
-      </MenuItem>
-      <MenuItem Header="Save" Command="ApplicationCommands.Save">
-        <MenuItem.Icon><TextBlock FontSize="12">💰</TextBlock></MenuItem.Icon>
-      </MenuItem>
-      <MenuItem Header="Save As..." Command="ApplicationCommands.SaveAs">
-      </MenuItem>
-      <Separator/>
-      <MenuItem Header="Help..." Command="ApplicationCommands.Help">
-        <MenuItem.Icon><TextBlock FontSize="12" FontWeight="ExtraBold" Foreground="Green">❓</TextBlock></MenuItem.Icon>
-      </MenuItem>
-      <Separator/>
-      <MenuItem Header="Quit"
-        Command="ApplicationCommands.Close">
-        <MenuItem.Icon><TextBlock FontSize="12" Foreground="Red">❌</TextBlock></MenuItem.Icon>
-      </MenuItem>
-    </ContextMenu>
+    <controls:MainMenu FontSize="22" StaysOpen="true"/>
   </Window.ContextMenu>
 
   <Grid>
