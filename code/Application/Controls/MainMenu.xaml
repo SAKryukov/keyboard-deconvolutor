@@ -25,6 +25,7 @@
 
         <Thickness x:Key="lineThicknessMenu">2</Thickness>
         <system:Double x:Key="lineThicknessSeparator">1</system:Double>
+        <HorizontalAlignment x:Key="iconHorizontalAlignment">Center</HorizontalAlignment>
 
         <Style TargetType="{x:Type MenuItem}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -39,9 +40,24 @@
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="MenuHeaderGroup"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ContentControl x:Name="iconContainer" Grid.Column="0" Content="{TemplateBinding Icon}" HorizontalAlignment="Center" Foreground="{StaticResource normalItemForeground}" Margin="{StaticResource marginIcon}"/>
-                            <ContentPresenter Grid.Column="1" ContentSource="Header" Margin="{StaticResource marginHeader}"/>
-                            <TextBlock FontWeight="Normal" x:Name="gestureText" Grid.Column="2" Text="{TemplateBinding InputGestureText}" Foreground="{StaticResource normalItemForeground}" Margin="{StaticResource marginGesture}"/>
+                            <ContentControl
+                                Grid.Column="0"
+                                x:Name="iconContainer"
+                                Content="{TemplateBinding Icon}"
+                                HorizontalAlignment="{StaticResource iconHorizontalAlignment}"
+                                Foreground="{StaticResource normalItemForeground}"
+                                Margin="{StaticResource marginIcon}"/>
+                            <ContentPresenter
+                                Grid.Column="1"
+                                ContentSource="Header"
+                                Margin="{StaticResource marginHeader}"/>
+                            <TextBlock
+                                Grid.Column="2"
+                                x:Name="gestureText"
+                                FontWeight="Normal"
+                                Text="{TemplateBinding InputGestureText}"
+                                Foreground="{StaticResource normalItemForeground}"
+                                Margin="{StaticResource marginGesture}"/>
                         </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -50,9 +66,8 @@
                                 <Setter Property="Foreground" Value="{StaticResource highlightForeground}"/>
                                 <Setter Property="Foreground" TargetName="iconContainer" Value="{StaticResource highlightForeground}"/>
                                 <Setter Property="Foreground" TargetName="gestureText" Value="{StaticResource highlightForeground}"/>
-                            </Trigger>
-                            <!-- Antidote for the programmatic Bold focus anomaly -->
-                            <Trigger Property="IsEnabled" Value="True">
+                            </Trigger>                            
+                            <Trigger Property="IsEnabled" Value="True"> <!-- Antidote for the programmatic Bold focus anomaly -->
                                 <Setter Property="FontWeight" Value="Normal" />
                             </Trigger>                     
                             <Trigger Property="Icon" Value="{x:Null}">
@@ -91,7 +106,7 @@
             </Setter>
         </Style> <!-- Separator -->
 
-        <Style TargetType="{x:Type controls:MainMenu}">
+        <Style TargetType="{x:Type MenuBase}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="Template">
@@ -109,14 +124,18 @@
                 </ControlTemplate>
             </Setter.Value>
             </Setter>
-        </Style> <!-- controls:MainMenu -->
+        </Style> <!-- MenuBase -->
+
+        <Style TargetType="{x:Type controls:MainMenu}" BasedOn="{StaticResource {x:Type MenuBase}}"/>
+
+        <!-- Style TargetType="{x:Type Menu}" BasedOn="{StaticResource {x:Type MenuBase}}" / -->
 
     </ContextMenu.Resources>
 
-    <MenuItem Header="Open..." Command="ApplicationCommands.Open" Icon="📖"/><!-- 📖䷉ -->
+    <MenuItem Header="Open..." Command="ApplicationCommands.Open" Icon="📖"/><!-- ䷉ -->
     <MenuItem Header="Save" Command="ApplicationCommands.Save">
         <MenuItem.Icon>
-            <TextBlock Padding="0 0 0 2">💰</TextBlock>
+            <TextBlock Padding="0 0 0 2">💰</TextBlock> <!-- 📦 📜 📝 📥 ... -->
         </MenuItem.Icon>
     </MenuItem>
     <MenuItem Header="Save As..." Command="ApplicationCommands.SaveAs"/>
@@ -130,7 +149,7 @@
     <Separator/>
     <MenuItem Header="Help..." Command="ApplicationCommands.Help">
         <MenuItem.Icon>
-            <TextBlock Foreground="LightGreen" Padding="1 0 1 2" Background="{StaticResource highlightBackground}">❓</TextBlock>
+            <TextBlock Padding="0 0 0 3">💡</TextBlock>
         </MenuItem.Icon>
     </MenuItem>
     <Separator/>
