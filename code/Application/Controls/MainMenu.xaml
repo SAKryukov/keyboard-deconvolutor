@@ -14,12 +14,12 @@
         <Thickness x:Key="marginSeparator">0 3 0 3</Thickness>
         
         <Brush x:Key="menuBackground">GhostWhite</Brush>
-        <!-- 
         <Brush x:Key="highlightBackground">LightBlue</Brush>
         <Brush x:Key="highlightForeground">Black</Brush>
-        -->
+        <!-- 
         <Brush x:Key="highlightBackground">#2000CC</Brush>
         <Brush x:Key="highlightForeground">White</Brush>
+        -->
         <Brush x:Key="normalItemForeground">Black</Brush>
         <Brush x:Key="colorLines">Gray</Brush>
 
@@ -155,7 +155,7 @@
     <Separator/>
     <MenuItem Header="Quit" Command="ApplicationCommands.Close">
         <MenuItem.Icon>
-            <TextBlock Foreground="Red">❌</TextBlock>
+            <TextBlock Foreground="#FF7070">❌</TextBlock>
         </MenuItem.Icon>
     </MenuItem>
 

@@ -6,5 +6,5 @@
   <Project Path="Semantic.Windows/Semantic.Windows.csproj" />
   <Project Path="Admin/admin.to-windows-registry/Admin.To-Windows-Registry.csproj" />
   <Project Path="Admin/admin.to-windows-reg-file/Admin.To-Windows-Reg-File.csproj" />
-
+  <Project Path="DevelopmentTools/systemd-hwdb/hwdbGenerator.csproj" />
 </Solution>
