@@ -14,14 +14,14 @@ Ultimately, all the discovered keys can be used for remapping.
 
 The key remapping goal is to force physical keys to behave as if they were some other ones. This feature is very important as it can fix some existing defects of physical keyboards and customize the user experience.
 
-Keyboard Deconvolutor can be used to create scan code mappings and modify existing remapping data. It works with the unified platform-agnostic data model and .scan-code-mapping files. It does not modify the system configuration directly. Instead, the user can *export* the remapping data as system files. The export functionality is based on the plugin system. Presently, two formats are supported: Windows Registry .reg files and Linux .hwdb files.
+Keyboard Deconvolutor can be used to create scan code mappings and modify existing [*remapping data*](#heading-remapping-table). It works with the unified platform-agnostic data model and .scan-code-mapping files. It does not modify the system configuration directly. Instead, the user can [*export*](#heading-export) the remapping data as system files. The export functionality is based on the plugin system. Presently, [two formats](#two-formats) are supported: Windows Registry .reg files and Linux .hwdb files.
 
 The application Admin.To-Windows-Registry writes scan code remapping directly to the system Registry.
 
 Windows uses information found in the Registry to remap the keyboard. This is the location of this information:
 
-***Key***: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout
-<br/>***Value***: Scancode Map
+***Key***: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`
+<br/>***Value***: `Scancode Map`
 
 Modification of the Registry can be dangerous if the feature is used without caution. Let’s consider the safety precautions.
 
@@ -29,10 +29,10 @@ Modification of the Registry can be dangerous if the feature is used without cau
 
 A corrupted payload or bad mapping can render your user login password permanently non-functional at the next Windows logon.
 
-- Note that the scan code mappings will become effective after the next user logon, after a system reboot, or after the user logs off. Be careful not to log out accidentally or turn off the computer power when the Registry data is not validated.
+* Note that the scan code mappings will become effective after the next user logon, after a system reboot, or after the user logs off. Be careful not to log out accidentally or turn off the computer power when the Registry data is not validated.
 * One advanced safety technique is to disable user authentication after a system reboot or the return from sleep. Please refer to the Settings documentation for your particular Windows version and configuration.
-- Before any changes to the Registry, preserve the current Registry state. To do so, run Regedit and export the Registry data found at the key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`. In the exported file, all data can be wiped except the value `Scancode Map`. Later, click on this file to restore the Registry.
-- * Avoid remapping any keys used to enter text data. The usual reason for remapping is changing the functionality of keys used to perform functions: toggle buttons, prefix buttons, buttons handling the keyboard, audio system, media players, and the like.
+* Before any changes to the Registry, preserve the current Registry state. To do so, run Regedit and export the Registry data found at the key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout`. In the exported file, all data can be wiped except the value `Scancode Map`. Later, click on this file to restore the Registry.
+* Avoid remapping any keys used to enter text data. The usual reason for remapping is changing the functionality of keys used to perform functions: toggle buttons, prefix buttons, buttons handling the keyboard, audio system, media players, and the like.
 
 ## Emergency Recovery: If You Are Locked Out of Windows
 
@@ -81,7 +81,7 @@ The human-readable representation of the currently selected mapping element in t
 
 The "Export" menu item is enabled only if there is at least one export plugin and the current remapping table is non-empty. The export dialog provides a choice of output file types. The filename filters for each file type are supplied by the plugin implementations.
 
-With the current software version, the user can choose one of the two export file formats: Windows Registry .reg files or Linux .hwdb files.
+{id=two-formats}With the current software version, the user can choose one of the two export file formats: Windows Registry .reg files or Linux .hwdb files.
 
 Please see the [Linux remapping instructions](https://sakryukov.github.io/keyboard-deconvolutor/docs/Linux-usage.html).
 
@@ -89,7 +89,7 @@ Please see the [Linux remapping instructions](https://sakryukov.github.io/keyboa
 
 It is unlikely that the user has a keyboard with all keys Windows can process. The on-screen keyboard also presents only the most used keys. There are many missing keys there. At the same time, the list of keys shown in the combo boxes Original Scan Code and Replacement Scan Code is comprehensive.
 
-Windows handles each scan code generated by any compatible keyboard and exposes it to the developer via Raw Input. However, there are a number of exclusions. First, it shows one scan code for all the “newer” audio and media player control keys. Of course, in reality, all these keys have different scan codes, but Windows handles them internally and shows them as the same. Also, the set of virtual keys includes not only the elements corresponding to real physical keys, but also generic keys not found on the physical keyboards. In particular, the keys Shift, Alt, and Win (Super, Meta, Windows Logo) do not exist because those are just generic names for corresponding left and right keys. Besides, the Pause key scan code is presented to the developer as 0xE11D, while in reality the Pause sends the sequence 0xE1, 0x1D, 0x45, 0xE1, 0x9D, and 0xC5
+Windows handles each scan code generated by any compatible keyboard and exposes it to the developer via Raw Input. However, there are a number of exclusions. First, it shows one scan code for all the “newer” audio and media player control keys. Of course, in reality, all these keys have different scan codes, but Windows handles them internally and shows them as the same. Also, the set of virtual keys includes not only the elements corresponding to real physical keys, but also generic keys not found on the physical keyboards. In particular, the keys Shift, Alt, and Win (Super, Meta, Windows Logo) do not exist because those are just generic names for corresponding left and right keys. Besides, the Pause key scan code is presented to the developer as 0xE11D, while in reality the Pause sends the sequence 0xE1, 0x1D, 0x45, 0xE1, 0x9D, and 0xC5.
 
 Keyboard Deconvolutor discovers all the keys by probing all possible scan code values in Windows format and passing them through the Windows API. In several cases, different scan code values are mapped to the same virtual key. In this case, the correct scan code can be found by the reverse transform.
 
