@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Plugin.00.Windows.Registry</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDirectory)Agnostic/Core/Agnostic.Core.csproj" />
+    <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
+  </ItemGroup>
+
+</Project>

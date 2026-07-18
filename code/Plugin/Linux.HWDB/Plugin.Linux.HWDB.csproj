@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>SA</RootNamespace>
-    <OutputType>exe</OutputType>
-    <TargetFramework>$(TargetFramework)</TargetFramework>
+    <AssemblyName>Plugin.01.Linux.HWDB</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="$(SolutionDirectory)Agnostic/Core/Agnostic.Core.csproj" />
     <ProjectReference Include="$(SolutionDirectory)Semantic/Semantic.csproj" />
   </ItemGroup>
 

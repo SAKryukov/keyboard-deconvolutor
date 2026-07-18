@@ -11,6 +11,7 @@ public partial class WindowMain {
         openFileDialog.Filter = openFileDialog.Filter;
         openFileDialog.DefaultExt = DefinitionSet.DialogData.defaultSuffix;
         saveFileDialog.DefaultExt = openFileDialog.DefaultExt;
+        exportDialog.Title = DefinitionSet.DialogData.exportDialogTitle;
     } //SetupDialogs
 
     void Load() {
@@ -35,10 +36,24 @@ public partial class WindowMain {
         return true;
     } //StoreAs
 
+    static Semantic.DataModel PopulatedModel {
+        get {
+            Semantic.DataModel model = new();
+            model.Populate(ViewModel.MappingView.ItemsSource);
+            return model;
+        } //get PopulatedModel
+    } //PopulatedModel
+
+    void Export() {
+        if (exportDialog.ShowDialog(this) != true) return;
+        int pluginIndex = exportDialog.FilterIndex - 1;
+        var plugin = plugins[pluginIndex];
+        Semantic.DataModel model = PopulatedModel;
+        plugin.Instance.Export(model, exportDialog.FileName);
+    } //Export
+
     static void Store(string filename) {
-        Semantic.DataModel model = new();
-        model.Populate(ViewModel.MappingView.ItemsSource);
-        Agnostic.Persistence<Semantic.DataModel>.Store(model, filename);
+        Agnostic.Persistence<Semantic.DataModel>.Store(PopulatedModel, filename);
     } //Store
     static void Load(string filename) {
         ViewModel.MappingView.Clear();
@@ -64,6 +79,7 @@ public partial class WindowMain {
     
     readonly OpenFileDialog openFileDialog = new();
     readonly SaveFileDialog saveFileDialog = new();
+    readonly SaveFileDialog exportDialog = new();
     string currentFileName = null;
 
 } //class WindowMain

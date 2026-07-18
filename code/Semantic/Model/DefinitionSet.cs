@@ -40,8 +40,6 @@ public static class DefinitionSet {
         public static readonly string CloseQuote = $"{char.ConvertFromUtf32(0x201D)}";
         internal static string FileNotFound(string fileName) =>
             $"File {OpenQuote}{fileName}{CloseQuote} not found";
-        internal static string RegistryFileCreated(string fileName) =>
-            $"Registry file {OpenQuote}{fileName}{CloseQuote} created";
     } //class Admin
     
     internal static class Utility {

@@ -23,6 +23,11 @@ public partial class WindowMain {
             (_, eventArgs) => { eventArgs.CanExecute = HasData; }));
 
         CommandBindings.Add(new CommandBinding(
+            MediaCommands.Record, // export
+            (_, _) => Export(),
+            (_, eventArgs) => { eventArgs.CanExecute = HasData && HasPlugins; }));
+
+        CommandBindings.Add(new CommandBinding(
             ApplicationCommands.Help,
             (_, _) => about.ShowAbout(Title),
             (_, eventArgs) => { eventArgs.CanExecute = true; }));
@@ -45,5 +50,6 @@ public partial class WindowMain {
     } //AddCommandBindings
 
     static bool HasData { get { return ViewModel.MappingView.Count > 0; } }
+    bool HasPlugins { get { return plugins.Count > 0; } }
 
 } //class WindowMain
