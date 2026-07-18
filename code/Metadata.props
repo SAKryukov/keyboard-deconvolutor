@@ -3,7 +3,7 @@
   <PropertyGroup> <!-- customize:  -->
 
     <TargetFramework>net10.0</TargetFramework>
-    <CustomUnifiedVersion>1.0.0.0</CustomUnifiedVersion>
+    <CustomUnifiedVersion>2.0.0.0</CustomUnifiedVersion>
     <!-- can be alpha, beta, RC1, RC2, etc.: -->
     <CustomInformationalVersionSuffix>pre-alpha</CustomInformationalVersionSuffix>
     <Copyright>Copyright © 2026 Sergey A Kryukov</Copyright>
