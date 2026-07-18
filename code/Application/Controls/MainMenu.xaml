@@ -16,6 +16,7 @@
         <Brush x:Key="menuBackground">GhostWhite</Brush>
         <Brush x:Key="highlightBackground">LightBlue</Brush>
         <Brush x:Key="highlightForeground">Black</Brush>
+        <Brush x:Key="disabledForeground">#AAAAAA</Brush>
         <!-- 
         <Brush x:Key="highlightBackground">#2000CC</Brush>
         <Brush x:Key="highlightForeground">White</Brush>
@@ -69,6 +70,10 @@
                             </Trigger>                            
                             <Trigger Property="IsEnabled" Value="True"> <!-- Antidote for the programmatic Bold focus anomaly -->
                                 <Setter Property="FontWeight" Value="Normal" />
+                            </Trigger>                     
+                            <Trigger Property="IsEnabled" Value="False"> <!-- Antidote for the programmatic Bold focus anomaly -->
+                                <Setter Property="FontWeight" Value="Normal" />
+                                <Setter Property="Foreground" Value="{StaticResource disabledForeground}" />
                             </Trigger>                     
                             <Trigger Property="Icon" Value="{x:Null}">
                                 <Setter TargetName="iconContainer" Property="Visibility" Value="Collapsed"/>
@@ -139,13 +144,11 @@
         </MenuItem.Icon>
     </MenuItem>
     <MenuItem Header="Save As..." Command="ApplicationCommands.SaveAs"/>
-    <!-- for the future version:
-    <MenuItem Header="Export...">
+    <MenuItem Header="Export..." Command="MediaCommands.Record">
         <MenuItem.Icon>
             <TextBlock Padding="0 0 0 2">📤</TextBlock>
         </MenuItem.Icon>
     </MenuItem>
-    -->
     <Separator/>
     <MenuItem Header="Help..." Command="ApplicationCommands.Help">
         <MenuItem.Icon>
