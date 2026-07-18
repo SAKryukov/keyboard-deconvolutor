@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Linux Key Remapping</title>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+        * { font-family: sans-serif; }
+        .title { font-size: 160%; border-bottom: solid thin black; }
+        h1 { font-size: 120%; }
+        code, pre {
+            background-color: hsl(198, 35%, 90%);
+            padding-left: 0.2em; padding-right: 0.2em;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+<p class="title">Linux Key Remapping</p><h1 id="heading-1.-copy-your-generated-file-cleanly-into-the-system-overrides-directory">1. Copy your generated file cleanly into the system overrides directory</h1>
+<pre>sudo cp ./your-generated-file.hwdb /etc/udev/hwdb.d/99-keyboard-deconvolutor.hwdb
+</pre><h1 id="heading-2.-compile-the-text-overrides-into-the-kernel27s-binary-system-database">2. Compile the text overrides into the kernel’s binary system database</h1>
+<pre>sudo systemd-hwdb update
+</pre><h1 id="heading-3.-force-the-active-udev-daemon-to-reload-its-configuration-state-maps">3. Force the active udev daemon to reload its configuration state maps</h1>
+<pre>sudo udevadm control --reload
+</pre><h1 id="heading-4.-trigger-the-active-hardware-driver-matrix-to-activate-your-layout-live21">4. Trigger the active hardware driver matrix to activate your layout live!</h1>
+<pre>sudo udevadm trigger --sysname-match="event*"
+</pre>
+
+</body>
+</html>

@@ -83,7 +83,7 @@ The "Export" menu item is enabled only if there is at least one export plugin an
 
 With the current software version, the user can choose one of the two export file formats: Windows Registry .reg files or Linux .hwdb files.
 
-Please see the [Linux remapping instructions](https://sakryukov.github.io/keyboard-deconvolutor/docs/Linux-usage.md).
+Please see the [Linux remapping instructions](https://sakryukov.github.io/keyboard-deconvolutor/docs/Linux-usage.html).
 
 ## Advanced Topic: Automatic Key Discovery
 
