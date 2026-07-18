@@ -2,7 +2,7 @@
 
 ![Keyboard Deconvolutor](./docs/logo.webp)
 
-Keyboard Deconvolutor is a system application used to remap low-level keyboard scan codes for different systems
+Keyboard Deconvolutor is a system application used to remap low-level keyboard scan codes for Windows and Linux
 
 [Application Help](https://sakryukov.github.io/keyboard-deconvolutor/code/Application/Resources/help.html)
 

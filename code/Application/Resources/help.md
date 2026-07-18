@@ -14,11 +14,9 @@ Ultimately, all the discovered keys can be used for remapping.
 
 The key remapping goal is to force physical keys to behave as if they were some other ones. This feature is very important as it can fix some existing defects of physical keyboards and customize the user experience.
 
-Keyboard Deconvolutor can be used to create scan code mappings and modify existing remapping data. It does not modify the system configuration directly. Instead, the user can feed the scan code mapping files to the admin utilites, the applications named Admin.*. The target system does not have to be Windows.
+Keyboard Deconvolutor can be used to create scan code mappings and modify existing remapping data. It works with the unified platform-agnostic data model and .scan-code-mapping files. It does not modify the system configuration directly. Instead, the user can *export* the remapping data as system files. The export functionality is based on the plugin system. Presently, two formats are supported: Windows Registry .reg files and Linux .hwdb files.
 
-In particular, the application Admin.To-Windows-Reg-File.exe writes a scan code mapping file *.scan-code-mapping to a .reg file to be used later to populate the Windows Registry with the scan code mapping.
-
-The application Admin.To-Windows-Registry writes a scan code mapping file *.scan-code-mapping directly to the system Registry.
+The application Admin.To-Windows-Registry writes scan code remapping directly to the system Registry.
 
 Windows uses information found in the Registry to remap the keyboard. This is the location of this information:
 
@@ -53,9 +51,9 @@ If you accidentally remap or disable a key required to type your Windows passwor
 
 There are three sources of key data used to create a scan code remapping:
 
-1. 1. The on-screen keyboard presented by the Keyboard Deconvolutor application
+1. The on-screen keyboard presented by the Keyboard Deconvolutor application
 1. The physical keyboard attached to the computer running the application.
-1. 1. The complete list of keys found in each combo box found at the bottom of the application window.
+1. The complete list of keys found in each combo box found at the bottom of the application window.
 
 The first two methods do not necessarily reveal all the keys required to remap. The on-screen keyboard presents only the standard basic keyboard. Likewise, the physical keyboard can be different from the keyboards tagged by the mapping. For example, few keyboards have the keys F13 to F24.
 
@@ -78,6 +76,14 @@ Also, duplicate Original keys make no sense. (Of course, a Replacement key can r
 The remapping table is shown on the right under the label "Scan Code Map". It can be saved or loaded using the context menu. This menu is also activated by the <b>&#x22EE;</b> "kebab" button found right of the label.
 
 The human-readable representation of the currently selected mapping element in the table is shown in the status bar.
+
+## Export
+
+The "Export" menu item is enabled only if there is at least one export plugin and the current remapping table is non-empty. The export dialog provides a choice of output file types. The filename filters for each file type are supplied by the plugin implementations.
+
+With the current software version, the user can choose one of the two export file formats: Windows Registry .reg files or Linux .hwdb files.
+
+Please see the [Linux remapping instructions](https://sakryukov.github.io/keyboard-deconvolutor/docs/Linux-usage.md).
 
 ## Advanced Topic: Automatic Key Discovery
 
