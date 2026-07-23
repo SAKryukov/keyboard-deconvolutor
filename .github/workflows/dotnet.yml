@@ -1,0 +1,41 @@
+name: .NET Build
+run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
+
+on:
+  push:
+    tags:
+      - '[0-9]*'
+        
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write # This grants permission to create and overwrite the Release asset
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x' 
+
+    - name: Build Project (Release)
+      working-directory: ./code
+      run: |
+        dotnet build -c Release
+
+    - name: Package Application Binaries (Native PowerShell)
+      shell: powershell
+      run: |
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./KeyboardDeconvolutor.zip
+
+    - name: Publish to GitHub Releases
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: latest
+        name: Build of the latest version
+        body: |
+          Keyboard Deconvolutor, a system application used to remap low-level keyboard scan codes for different systems
+        files: ./KeyboardDeconvolutor.zip
