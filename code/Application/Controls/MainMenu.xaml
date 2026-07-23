@@ -158,7 +158,7 @@
     <Separator/>
     <MenuItem Header="Quit" Command="ApplicationCommands.Close">
         <MenuItem.Icon>
-            <TextBlock Foreground="#FF7070">❌</TextBlock>
+            <TextBlock Foreground="Red">❌</TextBlock>
         </MenuItem.Icon>
     </MenuItem>
 
