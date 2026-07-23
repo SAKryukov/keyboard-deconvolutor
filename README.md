@@ -11,7 +11,7 @@ can be added without touching the existing assemblies.
 
 [Application Help](https://sakryukov.github.io/keyboard-deconvolutor/code/Application/Resources/help.html)
 
-[Pre-built application](https://github.com/SAKryukov/keyboard-deconvolutor)
+[Pre-built application](releases/download/latest/KeyboardDeconvolutor.zip)
 <br><small>(All prebuilt executables are built on the GitHub server and are safe.)</small>
 
 See also: [Кeyboard Layout Аssistant](https://github.com/SAKryukov/keyboard-layout-assistant)
