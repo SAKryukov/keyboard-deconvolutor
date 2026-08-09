@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
     paths:
       - '.github/workflows/pages.yml'
-      - 'docs/**' #v.2
+      - 'docs/**'
     tags:
       - '[0-9]*'
   workflow_dispatch:
