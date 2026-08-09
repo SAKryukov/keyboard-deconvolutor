@@ -9,7 +9,7 @@ so other remapping formats,
 if they are required for other systems,
 can be added without touching the existing assemblies.
 
-[Application Help](https://sakryukov.github.io/keyboard-deconvolutor/code/Application/Resources/help.html)
+[Application Help](https://sakryukov.github.io/keyboard-deconvolutor/help.html)
 
 [Pre-built application](https://github.com/SAKryukov/keyboard-deconvolutor/releases/download/latest/KeyboardDeconvolutor.zip)
 <br><small>(All prebuilt executables are built on the GitHub server and are safe.)</small>

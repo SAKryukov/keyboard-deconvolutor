@@ -1,0 +1,17 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)release-metadata.project"/>
+
+  <Target Name="Metadata">
+    <ItemGroup>
+      <GitHubEnvLine Include="ReleaseTagName=$(ReleaseTagName)" />
+      <GitHubEnvLine Include="ReleaseName=$(ReleaseName)" />
+      <GitHubEnvLine Include="ReleaseBody=$(ReleaseBody)" />
+      <GitHubEnvLine Include="ReleaseFileName=$(ReleaseFileName)" />
+      <GitHubEnvLine Include="SourceForPages=$(SourceForPages)" />
+      <GitHubEnvLine Include="MakeReleaseLatest=$(MakeReleaseLatest)" />
+    </ItemGroup>   
+    
+    <WriteLinesToFile File="$(GITHUB_ENV)" Lines="@(GitHubEnvLine)" Overwrite="true" Encoding="Utf-8" />
+    
+  </Target>
+</Project>

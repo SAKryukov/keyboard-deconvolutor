@@ -1,0 +1,18 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)../../code/Metadata.props"/>
+
+  <PropertyGroup> <!-- customize:  -->
+  
+    <FileName>Keyboard-Deconvolutor.$(CustomUnifiedVersion).zip</FileName>
+    <SourceForPages>docs</SourceForPages>
+
+    <ReleaseTagName>latest-build</ReleaseTagName>
+    <ReleaseName>Latest release build: $(CustomUnifiedVersion)</ReleaseName>
+    <ReleaseBody>This release is a container for executable builds packaged in the $(FileName) file</ReleaseBody>
+    <ReleaseFileName>$(FileName)</ReleaseFileName>
+    <MakeReleaseLatest>true</MakeReleaseLatest>
+
+  </PropertyGroup>
+
+</Project>
+

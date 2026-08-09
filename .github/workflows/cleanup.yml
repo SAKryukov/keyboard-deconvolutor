@@ -1,0 +1,40 @@
+name: "History and Log Cleanup Engine"
+run-name: "Cleanup Execution Loop #${{ github.run_number }} [Trigger: ${{ github.event_name }}]"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '.github/workflows/cleanup.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: "cleanup-engine"
+  cancel-in-progress: true
+
+jobs:
+  clean-history:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write 
+    steps:
+      - name: Purge Historical Run Records via Native GitHub CLI
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Purging old historical workflow run records safely..."
+          for run_id in $(gh api repos/${{ github.repository }}/actions/workflows/pages.yml/runs | jq -r '.workflow_runs[1:] | .[].id'); do
+            echo "Deleting pages run $run_id..."
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE || true
+          done
+          for run_id in $(gh api repos/${{ github.repository }}/actions/workflows/dotnet.yml/runs | jq -r '.workflow_runs[1:] | .[].id'); do
+            echo "Deleting dotnet run $run_id..."
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE || true
+          done
+          for run_id in $(gh api repos/${{ github.repository }}/actions/workflows/cleanup.yml/runs | jq -r '.workflow_runs[1:] | .[].id'); do
+            echo "Deleting cleanup run $run_id..."
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE || true
+          done         
+          echo "All targeted historical entries successfully processed!"
+

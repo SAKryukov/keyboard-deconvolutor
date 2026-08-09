@@ -1,19 +1,26 @@
 name: .NET Build
-run-name: Build #${{ github.run_number }} # This sets the clean name on the Actions page
+run-name: ".NET Build #${{ github.run_number }} [Trigger: ${{ github.event_name }}]"
 
 on:
   push:
+    branches: [ "main" ]
+    paths:
+      - '.github/workflows/dotnet.yml'
+      - 'code/Metadata.props'
     tags:
       - '[0-9]*'
-        
+  workflow_dispatch:
+  
+#v.2
+  
 jobs:
   build:
     runs-on: windows-latest
     permissions:
-      contents: write # This grants permission to create and overwrite the Release asset
+      contents: write # permission to create and overwrite the Release asset
 
     steps:
-    - name: Checkout Source Code
+    - name: Checkout source Code
       uses: actions/checkout@v4
 
     - name: Setup .NET SDK
@@ -21,21 +28,44 @@ jobs:
       with:
         dotnet-version: '10.0.x' 
 
-    - name: Build Project (Release)
+    - name: Build solution (Release)
       working-directory: ./code
       run: |
         dotnet build -c Release
+        
+    - name: Prepare metadata 
+      working-directory: ./.github/workflows
+      run: |
+        dotnet build metadata.targets --target:Metadata
 
-    - name: Package Application Binaries (Native PowerShell)
+    - name: Package build output
       shell: powershell
       run: |
-        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ./KeyboardDeconvolutor.zip
+        Compress-Archive -Path ./code/output.AnyCPU.Release/* -DestinationPath ${{ env.ReleaseFileName }}
 
-    - name: Publish to GitHub Releases
-      uses: softprops/action-gh-release@v2
+    - name: Publish to GitHub release
+      uses: softprops/action-gh-release@v3
       with:
-        tag_name: latest
-        name: Build of the latest version
-        body: |
-          Keyboard Deconvolutor, a system application used to remap low-level keyboard scan codes for different systems
-        files: ./KeyboardDeconvolutor.zip
+        tag_name: ${{ env.ReleaseTagName }}
+        name: ${{ env.ReleaseName }}
+        body: ${{ env.ReleaseBody }}
+        files: ${{ env.ReleaseFileName }}
+        make_latest: ${{ env.MakeReleaseLatest }}
+
+  clean-history:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write 
+    steps:
+      - name: Purge Historical Run Records via Native GitHub CLI
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Purging old historical workflow run records safely..."
+          filename=$(basename "${GITHUB_WORKFLOW_REF%@*}")
+          echo "Detected clean file name for API query: $filename"
+          for run_id in $(gh api repos/${{ github.repository }}/actions/workflows/$filename/runs | jq -r '.workflow_runs[1:] | .[].id'); do
+            echo "Deleting old run $run_id..."
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE || true
+          done

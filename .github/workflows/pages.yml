@@ -1,0 +1,65 @@
+name: "Pages build and deployment"
+run-name: "Pages Deploy #${{ github.run_number }} [Trigger: ${{ github.event_name }}]"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '.github/workflows/pages.yml'
+      - 'deploy/**'
+    tags:
+      - '[0-9]*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare metadata 
+        working-directory: ./.github/workflows
+        run: |
+          dotnet build metadata.targets --target:Metadata
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5    
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.SourceForPages }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  clean-history:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write 
+    steps:
+      - name: Purge Historical Run Records via Native GitHub CLI
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          filename=$(basename "${GITHUB_WORKFLOW_REF%@*}")
+          echo "Detected clean file name for API query: $filename"
+          for run_id in $(gh api repos/${{ github.repository }}/actions/workflows/$filename/runs | jq -r '.workflow_runs[1:] | .[].id'); do
+            echo "Deleting old run $run_id..."
+            gh api repos/${{ github.repository }}/actions/runs/$run_id -X DELETE || true
+          done
