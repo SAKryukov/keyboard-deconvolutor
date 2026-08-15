@@ -4,6 +4,7 @@ static class DefinitionSet {
     
     internal const string dialogFilter = "Linux key remapping files (*.hwdb)|*.hwdb";
     
+    //internal const string prolog = "evdev:atkbd:dmi:bvn*";
     internal const string prolog = "evdev:atkbd:dmi:bvn*";
     internal static string FormatKey(byte value, string name) =>
         $" KEYBOARD_KEY_{value:x2}={name.ToLower()}";

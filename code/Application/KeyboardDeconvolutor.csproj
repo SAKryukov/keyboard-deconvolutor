@@ -18,6 +18,7 @@
   
   <ItemGroup>
     <None Include="Resources/help.html" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Resources/Linux-usage.html" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>  
 
 </Project>

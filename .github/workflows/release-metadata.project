@@ -4,7 +4,7 @@
   <PropertyGroup> <!-- customize:  -->
   
     <FileName>Keyboard-Deconvolutor.$(CustomUnifiedVersion).zip</FileName>
-    <SourceForPages>docs</SourceForPages>
+    <SourceForPages>code/Application/Resources</SourceForPages>
 
     <ReleaseTagName>latest-build</ReleaseTagName>
     <ReleaseName>Latest release build: $(CustomUnifiedVersion)</ReleaseName>
